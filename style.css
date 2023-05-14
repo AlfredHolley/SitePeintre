@@ -1,0 +1,38 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px; /* Ajoute de l'espace entre les éléments de la grille */
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+}
+
+.grid-item p {
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+#more-artworks .artwork-row {
+	display: flex;
+	overflow-x: auto;
+	gap: 10px;
+}
+
+#more-artworks .artwork-row img {
+	height: 100px;
+	cursor: pointer;
+}

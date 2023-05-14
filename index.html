@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mon Portfolio - Nom de l'artiste</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+</head>
+<body>
+	<header>
+		<h1>Nom de l'artiste</h1>
+		<nav>
+			<ul>
+				<li><a href="#about">À propos</a></li>
+				<li><a href="#gallery">Galerie</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section id="gallery">
+		<h2>Galerie</h2>
+		<div class="grid">
+			<div class="grid-item">
+				<img src="img/Analyse.jpg" alt="Analyse" onclick="openArtwork('Analyse')">
+				<p>Analyse</p>
+			</div>
+            <div class="grid-item">
+				<img src="img/Interiorite.jpg" alt="Interiorite" onclick="openArtwork('Interiorite')">
+				<p>Interiorite</p>
+			</div>
+            <div class="grid-item">
+				<img src="img/JulienMargueritte.jfif" alt="Julien Margueritte" onclick="openArtwork('JulienMargueritte')">
+				<p>Julien et Margueritte</p>
+			</div>
+            <div class="grid-item">
+				<img src="img/DameBlanche.jpg" alt="Dame Blanche" onclick="openArtwork('DameBlanche')">
+				<p>Dame Blanche</p>
+			</div>
+            <div class="grid-item">
+				<img src="img/Maison-du-port.jpg" alt="Maison du port " onclick="openArtwork('Maison-du-port')">
+				<p>Maison du port</p>
+			</div>
+            <div class="grid-item">
+				<img src="img/memoire.jpg" alt="Memoire" onclick="openArtwork('Memoire')">
+				<p>Memoire</p>
+			</div>
+            <div class="grid-item">
+				<img src="img/reine.jpg" alt="Reine" onclick="openArtwork('Reine')">
+				<p>Reine</p>
+			</div>
+            <div class="grid-item">
+				<img src="img/point-de-vue.jpg" alt="Point de vue" onclick="openArtwork('point-de-vue')">
+				<p>Point de vue</p>
+			</div>
+			<!-- Repeat for other images -->
+		</div>
+	</section>
+	</main>
+	<footer>
+		<section id="contact">
+			<h2>Contact</h2>
+			<form>
+				<label for="name">Hervieu Christelle</label>
+				<input type="text" id="name" name="name"><br>
+
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email"><br>
+
+				<label for="message">Message:</label><br>
+				<textarea id="message" name="message" rows="5" cols="50"></textarea><br>
+
+				<input type="submit" value="Envoyer">
+			</form>
+		</section>
+	
+		<p>Droits d'auteur © 2023 - Nom de l'artiste</p>
+	</footer>
+</body>
+</html>
