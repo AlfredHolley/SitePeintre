@@ -1,16 +1,159 @@
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px; /* Ajoute de l'espace entre les éléments de la grille */
+
+
+
+
+.header {
+    background-image: url('img/Soleil_Head.jpg');
+    background-size: cover; /* Cela fera en sorte que l'image couvre toute la largeur */
+    background-repeat: no-repeat; /* Cela empêchera l'image de se répéter si elle est plus petite que la zone de l'en-tête */
+}
+
+
+.body  {
+    font-family: 'Inter', sans-serif;
+}
+
+.title{
+	font-size: 10px;
+}
+#Nom{
+	text-align: center;
+	font-size:32px  ;
+	font-weight: lighter;
+	font-family: "Times New Romain", serif;
+}
+
+#gallery::-webkit-scrollbar {
+    display: none;
+}
+
+
+.visage_rond{
+	width: 100%;
+    height: auto;
+}
+.details{
+	font-size: 5px;
+}
+.visage {
+    border-radius: 5px; /* Vous pouvez ajuster cette valeur selon vos préférences */
+}
+
+
+.read-more-container {
+	display: flex;
+	align-items: center;
+  }
+  
+.line {
+	flex-grow: 1;
+	border: none;
+	margin: 1%;
+	border-top: 1px solid black; /* Changez la couleur de la ligne ici */
+  }
+
+#aboutShowMoreTrigger .readMore {
+    display: inline; /* Affiche "Lire plus" par défaut */
+}
+
+#aboutShowMoreTrigger .readLess {
+    display: none; /* Cache "Lire moins" par défaut */
+}
+
+#header_about {
+    position: relative;
+    max-height: 100px;
+    overflow: hidden;
+}
+
+#aboutShowMore {
+    position: relative;
+    z-index: 1;
+}
+
+.series_pair{
+    height :400px;
+    position: relative;
+}
+
+
+
+.series_impair{
+    position: relative;
+    height :400px;
+    background-color: #eee;
+}
+.scroll-horizon {
+    scrollbar-width: none; 
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.scroll-horizon::-webkit-scrollbar {
+    display: none; 
+}
+
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 2em;
+    color: #000;
+    background: rgba(255, 255, 255, 0.35);
+    padding: 10px;
+    cursor: pointer;
+}
+
+#left-arrow {
+    left: 10px;
+}
+
+#right-arrow {
+    right: 10px;
+}
+
+#option{
+	margin-right: 2%;
+	margin-left: 2%;
+}
+
+.overlay-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px; /* Hauteur du gradient */
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    z-index: 2;
+}
+.info_serie{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+#gallery{
+	height : auto; 
+	border: 1px sodid #000;
+}
+/* --------------- MASONRY --------------------*/
+.grid-masonry {
+    column-count: 1;
+	margin-right: 2%;
+	margin-left: 2%;
+    column-gap: 20px;
     padding: 10px;
 }
 
 .grid-item {
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-    cursor: pointer;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+.grid-item:hover {
+    transform: scale(1.08);
+    transition: transform .2s;
 }
 
 .grid-item img {
@@ -19,20 +162,131 @@
 }
 
 .grid-item p {
-    padding: 10px;
+    padding: 2px;
     margin: 0;
+    text-align: left;
+    font-size: 10px;
+}
+
+@media(min-width: 600px) {
+    .grid-masonry {
+        column-count: 2;
+    }
+}
+
+@media(min-width: 900px) {
+    .grid-masonry {
+        column-count: 3;
+    }
+}
+
+@media(min-width: 1200px) {
+    .grid-masonry {
+        column-count: 4;
+    }
+}
+
+.grid-item .title {
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.grid-item .details {
+    font-size: 12px;
+    color: #555;
+}
+
+.grid-item .sold {
+    font-size: 16px;
+    color: red;
+    font-weight: bold;
+}
+
+.grid-item .disp {
+    font-size: 16px;
+    font-weight: lighter;
+}
+.brief-bio{
+	text-align: center;
+}
+
+.bio {
     text-align: center;
-    font-size: 18px;
+}
+
+.location {
+    text-align: center;
 }
 
 
-#more-artworks .artwork-row {
+.hidden {
+    display: none;
+}
+
+/* --------------- SERIES --------------------*/
+
+#gridButton, #seriesButton {
+    margin: 1em;
+    padding: 0.5em 1em;
+    border: none;
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+}
+#gridButton.active, #seriesButton.active {
+    background-color: #000;
+    color: #fff;
+}
+
+
+
+
+/* --------------- NAV --------------------*/
+
+
+.nav-tabs .nav-link.active {
+	border: none;
+	border-bottom: 3px solid black;
+}
+
+.a{
+	color:#000;
+}
+.a:hover{
+	color:#000;
+}
+.nav-link{
+	color: #000;
+	font-size: 20px;
+}
+.nav-link:hover{
+	color: #000;
+}
+
+#Presentation{ 
+	margin-right: 20px;
+	margin-left: 20px; /* Firefox */
+	min-height: 500px;
+	margin-bottom: 50px;
+}
+
+.photo_presentation {
+    max-width: 100%;
+    height: auto;
+	display: block;
+	margin:auto;
+}
+
+.monh3{
+	font-family: 'Times New Romain', Times, serif;
+}
+
+footer {
+	background-color: #0F0F00;
+	color: #fff; /* pour faire ressortir le texte sur le fond noir */
+	height: 200px; /* changez cette valeur en fonction de la taille souhaitée */
 	display: flex;
-	overflow-x: auto;
-	gap: 10px;
-}
-
-#more-artworks .artwork-row img {
-	height: 100px;
-	cursor: pointer;
-}
+	align-items: center;
+	justify-content: center;
+  }
+  
