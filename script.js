@@ -160,7 +160,11 @@ document.getElementById('seriesButton').addEventListener('click', function() {
     history.replaceState({view: 'series', scrollPosition: window.scrollY}, '');
 });
 
-
+if (!history.state) {
+    // L'utilisateur est sur la page pour la première fois
+    // Simulez un clic sur le bouton "Series"
+    document.getElementById('seriesButton').click();
+}
 
 window.onpopstate = function(event) {
     if (event.state) {
