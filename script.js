@@ -123,10 +123,7 @@ document.getElementById('seriesButton').addEventListener('click', function() {
         img.alt = artwork.title;
         
         img.onclick = createOnclickHandler(artwork.title);
-        img.style.display = 'inline-block';
-        img.style.width = 'auto';
-        img.style.height = '300px';
-        img.style.marginRight = '10px';
+        img.className = 'series-img';
         seriesDiv.appendChild(img);
     });
     // Create an image element for each artwork and add it to the div
@@ -136,10 +133,7 @@ document.getElementById('seriesButton').addEventListener('click', function() {
         img.alt = artwork.title;
         
         img.onclick = createOnclickHandler(artwork.title);
-        img.style.display = 'inline-block';
-        img.style.width = 'auto';
-        img.style.height = '300px';
-        img.style.marginRight = '10px'; 
+        img.className = 'series-img';
         seriesDiv_baroque.appendChild(img);
     });
     fleursArtworks.forEach(function(artwork) {
@@ -148,10 +142,7 @@ document.getElementById('seriesButton').addEventListener('click', function() {
         img.alt = artwork.title;
         
         img.onclick = createOnclickHandler(artwork.title);
-        img.style.display = 'inline-block';
-        img.style.width = 'auto';
-        img.style.height = '300px';
-        img.style.marginRight = '10px';
+        img.className = 'series-img';
         seriesDiv_fleurs.appendChild(img);
     });
 

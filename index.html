@@ -17,18 +17,23 @@
 		
 		
 		<div> 
-			<img class = "visage_rond" src="img/visage_rond.jpg">
+			<picture>
+				<source media="(min-width: 650px)" srcset="img/visage_rond.jpg">
+				<source media="(max-width: 649px)" srcset="img/visage_rond_grande.jfif">
+				<img src="img/visage_rond.jpg" alt="visage_rond" style="width:100%; height: auto;">
+			</picture>
+			  
 		</div>
 		<br>
 		<h1 id ="Nom">HERVIEU CHRISTELLE</h1>
 		<p class="location"><i class="fas fa-map-marker-alt"></i> Normandie, France</p>
-		<p class="brief-bio">Peinture, collages<span id="dots"></span>
+		<p class="brief-bio">Peinture, collages</p>
 			
 		<div class="bio">
 
 			<div class="text-break" id="header_about">
 				<div class="profile-content__biography mt-3 position-relative pb-3" id="aboutShowMore">
-					<br>
+					
 					<p>Depuis 2 ans j'approche avec une certaine contemplation, une nouvelle écriture, celle du paysage par une expression vibratoire et intuitive.</p>
 					<p>La profondeur du ciel, la végétation sont traités avec des couleurs intenses presque saturées dans une atmosphère floue apportant ainsi une dimension métaphysique.</p>
 					<p>Les personnages fantomatiques quant à eux apparaissent parfois dans ces espaces en clair obscur, en errance méditative.</p>
@@ -53,11 +58,15 @@
 		<section id="gallery">
 			
 			<div id = "option">
-				<h2 class="monh3">Galerie</h2>
-				<div>
-					<button id="seriesButton">SÉRIES</button>
-					<button id="gridButton">GRILLE</button>
-				</div>
+				<h3 class="monh3">Galerie</h3>
+				<div id="MesButtons">
+					<div>
+				<button id="seriesButton">SÉRIES</button>
+					</div>
+					<div>
+				<button id="gridButton">GRILLE</button>
+					</div>
+			    </div>
 				<br>
 			</div>
 			<br>
@@ -68,48 +77,49 @@
 				
 				<div class="series_pair">
 					<div class ="info_serie">
-						<h4>PAYSAGES </h4>
+						<h4 class="monh4">PAYSAGES </h4>
 						<p>Paysages intuitifs, la profondeur du ciel et la végétation sont traités avec des couleurs intenses ...</p>
 					</div>
-					
-					<div class="right-arrow">  ⟩ </div>
-					
-					<div class ="scroll-horizon paysage" id = "paysage">
+					<div class="scroll-container">
+						<div class="right-arrow">  ⟩ </div>
+						<div class ="scroll-horizon paysage" id = "paysage"> </div>
 						
+						<div class="left-arrow"> ⟨ </div>
 					</div>
-					<div class="left-arrow"> ⟨ </div>
-
 				</div>
 				<br>
 				<div class="series_impair">
 					<div class ="info_serie">
 						<br>
-						<h4>PORTRAITS BAROQUES </h4>
+						<h4 class="monh4">PORTRAITS BAROQUES </h4>
 						<p></p>
 					</div>
-					<div class="right-arrow"> ⟩ </div>
-					
-					<div class ="scroll-horizon baroque" id = "portrait_baroque">
+					<div class="scroll-container">
+						<div class="right-arrow"> ⟩ </div>
 						
+						<div class ="scroll-horizon baroque" id = "portrait_baroque">
+							
+						</div>
+						<div class="left-arrow"> ⟨ </div>
 					</div>
-					<div class="left-arrow"> ⟨ </div>
 						
 			</div>
 			<br>
 			<div class="series_pair">
 				<div class ="info_serie">
-					<h4>FLEURS </h4>
+					<h4 class="monh4">FLEURS </h4>
 					<p>Une série de compositions florales peintes de façon libre et intuitive</p>
 				</div>
-				
-				<div class="right-arrow">  ⟩ </div>
-				
-				<div class ="scroll-horizon paysage" id = "fleurs">
+				<div class="scroll-container">
+					<div class="right-arrow">  ⟩ </div>
 					
-				</div>
-				<div class="left-arrow"> ⟨ </div>
+					<div class ="scroll-horizon paysage" id = "fleurs">
+						
+					</div>
+					<div class="left-arrow"> ⟨ </div>
+					</div>
 
-			</div>
+				</div>
 			
 
 		</section>

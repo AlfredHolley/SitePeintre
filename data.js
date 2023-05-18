@@ -17,7 +17,7 @@ var artworks = [
         price: '€1000',
         sold : '',
         description: 'Description de l\'œuvre...',
-        imageUrl: 'img/Dameblanche.jpg',
+        imageUrl: 'img/DameBlanche.jpg',
     },
     {
         title: 'Interiorite',
@@ -164,7 +164,7 @@ var artworks = [
         price: '€1800',
         sold : '',
         description: 'Description de l\'œuvre...',
-        imageUrl: 'img/interiorite_deux.jfif',
+        imageUrl: 'img/interiote_deux.jfif',
 
     },
     {
