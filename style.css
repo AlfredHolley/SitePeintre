@@ -93,7 +93,8 @@
     display: none; 
 }
 
-.scroll-arrow {
+.right-arrow {
+    right: 10px;
     position: absolute;
     top: 50%;
     font-size: 2em;
@@ -103,19 +104,28 @@
     cursor: pointer;
 }
 
-#left-arrow {
+
+.left-arrow {
     left: 10px;
+    position: absolute;
+    top: 50%;
+    font-size: 2.1em;
+    color: #000;
+    background: rgba(255, 255, 255, 0.35);
+    padding: 10px;
+    cursor: pointer;
 }
 
-#right-arrow {
-    right: 10px;
-}
 
 #option{
-	margin-right: 2%;
-	margin-left: 2%;
+    display: flex;
+    align-items: center;
+	margin-right: 2em;
+	margin-left: 2em;
 }
-
+#option div {
+    margin-left: auto;
+}
 .overlay-gradient {
     position: absolute;
     bottom: 0;
@@ -226,10 +236,14 @@
 /* --------------- SERIES --------------------*/
 
 #gridButton, #seriesButton {
-    margin: 1em;
+    margin-right: 1em;
+    margin-top: 0.5em;
+    margin-left: 1em;
+    margin-bottom: 0.8em;
     padding: 0.5em 1em;
-    border: none;
-    background-color: #ccc;
+    border: 0.5px solid black;
+    border-radius: 2px;
+    background-color: #fff;
     color: #000;
     cursor: pointer;
 }

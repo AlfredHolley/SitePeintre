@@ -35,6 +35,15 @@ var grid = document.getElementById('artwork-grid');
 
 function createOnclickHandler(artworkTitle) {
     return function() {
+        // Save the current state
+        var state = {
+            view: document.getElementById('artwork-grid').style.display === 'block' ? 'grid' : 'series',
+            scrollPosition: window.scrollY
+        };
+        // Add the state to the browser history
+        history.pushState(state, '');
+
+        // Redirect to the detail page
         openArtwork(artworkTitle);
     };
 }
@@ -71,6 +80,8 @@ document.getElementById('gridButton').addEventListener('click', function() {
     document.getElementById('artwork-series').style.display = 'none';
     this.classList.add('active');
     document.getElementById('seriesButton').classList.remove('active');
+    history.replaceState({view: 'grid', scrollPosition: window.scrollY}, '');
+
 });
 
 document.getElementById('seriesButton').addEventListener('click', function() {
@@ -82,10 +93,14 @@ document.getElementById('seriesButton').addEventListener('click', function() {
     // Get the series_pair div
     var seriesDiv = document.querySelector('.scroll-horizon');
     var seriesDiv_baroque = document.querySelector('#portrait_baroque');
+    var seriesDiv_fleurs = document.querySelector('#fleurs');
+
 
 
     // Clear the div
     seriesDiv.innerHTML = '';
+    seriesDiv_baroque.innerHTML = '';
+    seriesDiv_fleurs.innerHTML = '';
     // Filter the artworks for "paysage" series
     var paysageArtworks = artworks.filter(function(artwork) {
         return artwork.serie === 'paysage';
@@ -95,6 +110,11 @@ document.getElementById('seriesButton').addEventListener('click', function() {
         return artwork.serie === 'portrait_baroque';
     
     });
+    var fleursArtworks = artworks.filter(function(artwork) {
+        return artwork.serie === 'fleurs';
+    
+    });
+
 
     // Create an image element for each artwork and add it to the div
     paysageArtworks.forEach(function(artwork) {
@@ -119,13 +139,45 @@ document.getElementById('seriesButton').addEventListener('click', function() {
         img.style.display = 'inline-block';
         img.style.width = 'auto';
         img.style.height = '300px';
-        img.style.marginRight = '10px';
+        img.style.marginRight = '10px'; 
         seriesDiv_baroque.appendChild(img);
+    });
+    fleursArtworks.forEach(function(artwork) {
+        var img = document.createElement('img');
+        img.src = artwork.imageUrl;
+        img.alt = artwork.title;
+        
+        img.onclick = createOnclickHandler(artwork.title);
+        img.style.display = 'inline-block';
+        img.style.width = 'auto';
+        img.style.height = '300px';
+        img.style.marginRight = '10px';
+        seriesDiv_fleurs.appendChild(img);
     });
 
 
     // Add CSS for horizontal scrolling
+    history.replaceState({view: 'series', scrollPosition: window.scrollY}, '');
 });
+
+
+
+window.onpopstate = function(event) {
+    if (event.state) {
+        // Restore the view
+        if (event.state.view === 'grid') {
+            document.getElementById('artwork-grid').style.display = 'block';
+            document.getElementById('artwork-series').style.display = 'none';
+            document.getElementById('gridButton').classList.add('active');
+            document.getElementById('seriesButton').classList.remove('active');
+        } else {
+            // Click the "Series" button to show the series
+            document.getElementById('seriesButton').click();
+        }
+        // Restore the scroll position
+        window.scrollTo(0, event.state.scrollPosition);
+    }
+};
 
 function smoothScroll(element, target, duration) {
     target = Math.round(target);
@@ -185,26 +237,30 @@ function smoothScroll(element, target, duration) {
 }
 
 
-var seriesDiv = document.querySelector('.scroll-horizon');
-var leftArrow = document.getElementById('left-arrow');
-var rightArrow = document.getElementById('right-arrow');
 
-leftArrow.addEventListener('click', function() {
-    smoothScroll(seriesDiv, seriesDiv.scrollLeft - 500, 600);
+var seriesDivs = document.querySelectorAll('.scroll-horizon');
+
+seriesDivs.forEach(function(seriesDiv) {
+    var leftArrow = seriesDiv.parentNode.querySelector('.left-arrow');
+    var rightArrow = seriesDiv.parentNode.querySelector('.right-arrow');
+
+    leftArrow.addEventListener('click', function() {
+        smoothScroll(seriesDiv, seriesDiv.scrollLeft - 500, 600);
+    });
+
+    rightArrow.addEventListener('click', function() {
+        smoothScroll(seriesDiv, seriesDiv.scrollLeft + 500, 600);
+    });
+
+    seriesDiv.addEventListener('scroll', function() {
+        leftArrow.style.visibility = seriesDiv.scrollLeft > 0 ? 'visible' : 'hidden';
+
+        var maxScrollLeft = seriesDiv.scrollWidth - seriesDiv.clientWidth;
+        rightArrow.style.visibility = seriesDiv.scrollLeft < maxScrollLeft ? 'visible' : 'hidden';
+    });
+
+    leftArrow.style.visibility = 'hidden';
 });
-
-rightArrow.addEventListener('click', function() {
-    smoothScroll(seriesDiv, seriesDiv.scrollLeft + 500, 600);
-});
-
-seriesDiv.addEventListener('scroll', function() {
-    leftArrow.style.visibility = seriesDiv.scrollLeft > 0 ? 'visible' : 'hidden';
-
-    var maxScrollLeft = seriesDiv.scrollWidth - seriesDiv.clientWidth;
-    rightArrow.style.visibility = seriesDiv.scrollLeft < maxScrollLeft ? 'visible' : 'hidden';
-});
-
-leftArrow.style.visibility = 'hidden';
 
 // Pages /////////////////////////////////////////////////
 
@@ -283,9 +339,12 @@ fetch('presentation.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('Presentation').innerHTML = data;
+        
+        // Restore the initial state if there is one
+        if (history.state) {
+            window.onpopstate({state: history.state});
+        }
     });
-
-
 
 
 

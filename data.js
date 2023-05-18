@@ -51,7 +51,7 @@ var artworks = [
     },
     {
         title: 'Memoire',
-        serie: 'portrait',
+        serie: 'portrait_baroque',
         format: "90x110",
         matiere : 'Huile sur toile',
         price: '€1000',
@@ -61,7 +61,7 @@ var artworks = [
         },
     {
         title: 'Vibration',
-        serie: 'portrait',
+        serie: 'paysage',
         format: "90x110",
         matiere : 'Huile sur toile',
         price: '€1000',
@@ -142,7 +142,102 @@ var artworks = [
         description: 'Description de l\'œuvre...',
         imageUrl: 'img/elle_fleur.jpg',
 
-    }
+    },
+    {
+
+        title: 'Errance guidée',
+        serie: 'portrait_baroque',
+        matiere : 'Acrylique sur toile',
+        format: "70x60",
+        price: '€1800',
+        sold : '',
+        description: 'Description de l\'œuvre...',
+        imageUrl: 'img/medieval.jfif',
+
+    },
+    {
+
+        title: 'Interiote rouge',
+        serie: 'interiorite',
+        matiere : 'Acrylique sur toile',
+        format: "70x60",
+        price: '€1800',
+        sold : '',
+        description: 'Description de l\'œuvre...',
+        imageUrl: 'img/interiorite_deux.jfif',
+
+    },
+    {
+        title: 'Souvenir',
+        serie: 'paysage',
+        matiere : 'Acrylique sur toile',
+        format: "70x60",
+        price: '€1800',
+        sold : '',
+        description: 'Description de l\'œuvre...',
+        imageUrl: 'img/memoire.jfif',
+
+    },
+    {
+        title: 'Un été vif',
+        serie: 'paysage',
+        matiere : 'Acrylique sur toile',
+        format: "70x60",
+        price: '€1800',
+        sold : '',
+        description: 'Description de l\'œuvre...',
+        imageUrl: 'img/paysage_ete.jpg',
+
+    },
+
+    {
+
+        title: 'Intuition florale',
+        serie: 'fleurs',
+        matiere : 'Acrylique sur toile',
+        format: "70x60",
+        price: '€600',
+        sold : 'Vendu',
+        description: 'Description de l\'œuvre...',
+        imageUrl: 'img/fleur1.jfif',
+
+    },
+    {
+
+        title: 'Bouquet',
+        serie: 'fleurs',
+        matiere : 'Acrylique sur toile',
+        format: "70x60",
+        price: '€500',
+        sold : '',
+        description: 'Description de l\'œuvre...',
+        imageUrl: 'img/fleur2.jpg',
+
+    },
+    {
+        title: 'Printemps',
+        serie: 'fleurs',
+        matiere : 'Acrylique sur toile',
+        format: "70x60",
+        price: '€500',
+        sold : '',
+        description: 'Description de l\'œuvre...',
+        imageUrl: 'img/fleur3.jfif',
+
+    },
+    {
+        title: 'Soudaine floraison',
+        serie: 'fleurs',
+        matiere : 'Acrylique sur toile',
+        format: "70x60",
+        price: '€500',
+        sold : '',
+        description: 'Description de l\'œuvre...',
+        imageUrl: 'img/fleur4.jpg',
+
+    },
+
+
   ];
   
   function openArtwork(artworkId) {
